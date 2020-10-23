@@ -53,9 +53,10 @@ Image data of each emotion is unbalanced
 import collections
 collections.Counter(train_data.emotion)
 ```
-<code style="background:black;color:white">
+<code>
 <b style="word-space:2em">&nbsp;</b>  > Counter({0: 3995, 2: 4097, 4: 4830, 6: 4965, 3: 7215, 5: 3171, 1: 436})
 </code>
+
 
 Sampling more data from less represented classes helps balancing
 
@@ -65,7 +66,7 @@ oversampler = imblearn.over_sampling.RandomOverSampler()
 x_train, y_train = oversampler.fit_resample(train_data.pixels.values.reshape(-1,1),train_data.emotion.values)
 collections.Counter(y_train)
 ```
-<code style="background:black;color:white">
+<code>
 <b style="word-space:2em">&nbsp;</b>  > Counter({0: 7215, 2: 7215, 4: 7215, 6: 7215, 3: 7215, 5: 7215, 1: 7215})
 </code>
 
