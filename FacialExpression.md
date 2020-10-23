@@ -50,11 +50,24 @@ for layer in model.layers[0].layers:
 
 Image data of each emotion is unbalanced
 ```python
+import collections
 collections.Counter(train_data.emotion)
 ```
-<p style="background:black">
 <code style="background:black;color:white">
-   > Counter({0: 3995, 2: 4097, 4: 4830, 6: 4965, 3: 7215, 5: 3171, 1: 436})
+<b style="word-space:2em">&nbsp;</b>  > Counter({0: 3995, 2: 4097, 4: 4830, 6: 4965, 3: 7215, 5: 3171, 1: 436})
 </code>
-</p>
+
+Sampling more data from less represented classes helps balancing
+
+```python
+import imblearn
+oversampler = imblearn.over_sampling.RandomOverSampler()
+x_train, y_train = oversampler.fit_resample(train_data.pixels.values.reshape(-1,1),train_data.emotion.values)
+collections.Counter(y_train)
+```
+<code style="background:black;color:white">
+<b style="word-space:2em">&nbsp;</b>  > Counter({0: 7215, 2: 7215, 4: 7215, 6: 7215, 3: 7215, 5: 7215, 1: 7215})
+</code>
+
+
 
