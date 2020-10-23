@@ -45,4 +45,16 @@ for layer in model.layers[0].layers:
         layer.trainable = True
 ```
 
+
 ### Class balancing
+
+Image data of each emotion is unbalanced
+```python
+collections.Counter(train_data.emotion)
+```
+<p style="background:black">
+<code style="background:black;color:white">
+>> Counter({0: 3995, 2: 4097, 4: 4830, 6: 4965, 3: 7215, 5: 3171, 1: 436})
+</code>
+</p>
+
