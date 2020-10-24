@@ -86,11 +86,11 @@ def smooth_labels(y, smooth_factor):
 
 # result
 
-#### confusion matrix
+#### Confusion matrix
 Even after class balancing, the model still perform poorly on "Disgust" and confusing "Fear" with "Sad" mostly. 
 
 
-#### real time classification
+#### Real time classification
 Combined face detection with OpenCV and the trained model for emotion classification. [ref](https://towardsdatascience.com/from-raw-images-to-real-time-predictions-with-deep-learning-ddbbda1be0e4)
 
 Follwoing is an example video of my kid and myself
