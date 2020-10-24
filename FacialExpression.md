@@ -2,7 +2,7 @@
 
 This is a [Kaggle Challenge](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge).
 
-The task is to categorize each face based on the emotion shown in the facial expression in to one of seven categories (Angry, Disgust, Fear, Happy, Sad, Surprise, Neutral).
+The task is to categorize each face based on the emotion shown in the facial expression in to one of seven categories (0=Angry, 1=Disgust, 2=Fear, 3=Happy, 4=Sad, 5=Surprise, 6=Neutral)
 
 
 # Performance
@@ -14,7 +14,7 @@ For comparison, the Kaggle [private leaderboard](https://www.kaggle.com/c/challe
 - Two stage transfer learning 
 - Class balancing 
 - Label smoothing
-- Hyper-parameter adjust ( dropout / learning rate )
+- Hyper-parameter adjusting ( dropout / learning rate )
 
 
 ### Transfer Learning
@@ -51,24 +51,46 @@ for layer in model.layers[0].layers:
 Image data of each emotion is unbalanced
 ```python
 import collections
-collections.Counter(train_data.emotion)
+print(collections.Counter(train_data.emotion))
 ```
 <code>
 <b style="word-space:2em">&nbsp;</b>  > Counter({0: 3995, 2: 4097, 4: 4830, 6: 4965, 3: 7215, 5: 3171, 1: 436})
 </code>
+note that number of samples for "Disgust" (represented by integer 1) is very few while "Happy" (represented by integer 3) is the most.
 
 
+#####
 Sampling more data from less represented classes helps balancing
 
 ```python
 import imblearn
 oversampler = imblearn.over_sampling.RandomOverSampler()
 x_train, y_train = oversampler.fit_resample(train_data.pixels.values.reshape(-1,1),train_data.emotion.values)
-collections.Counter(y_train)
+print(collections.Counter(y_train))
 ```
 <code>
 <b style="word-space:2em">&nbsp;</b>  > Counter({0: 7215, 2: 7215, 4: 7215, 6: 7215, 3: 7215, 5: 7215, 1: 7215})
 </code>
 
+### Label smoothing
+Data labels are not perfect. Label smoothing reduce prior belief from 100% sure to somewhere less than that. [Reference](https://www.robots.ox.ac.uk/~vgg/rg/papers/reinception.pdf)
+```python
+from copy import deepcopy as copy
+def smooth_labels(y, smooth_factor):
+    # Convert a matrix of one-hot row-vector labels into smoothed versions.
+    y2 = copy(y)
+    y2 *= 1 - smooth_factor
+    y2 += smooth_factor / y.shape[1]
+    return y2
+```
+
+# result
+
+#### confusion matrix
+Even after class balancing, the model still perform poorly on "Disgust" and confusing "Fear" with "Sad" mostly. 
 
 
+#### real time classification
+Combined face detection with OpenCV and the trained model for emotion classification. [ref](https://towardsdatascience.com/from-raw-images-to-real-time-predictions-with-deep-learning-ddbbda1be0e4)
+
+Follwoing is an example video of my kid and myself
