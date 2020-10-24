@@ -101,3 +101,5 @@ Combined face detection with OpenCV and the trained model for emotion classifica
 Follwoing is an example video of my kids and myself
 
 ![](project.gif)
+
+The emotion of small kid seems not performing well. I suspect the reason is that the training data set are mostly adult faces.
