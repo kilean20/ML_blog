@@ -58,6 +58,7 @@ print(collections.Counter(train_data.emotion))
 <code>
 <b style="word-space:2em">&nbsp;</b>  > Counter({0: 3995, 2: 4097, 4: 4830, 6: 4965, 3: 7215, 5: 3171, 1: 436})
 </code>
+
 note that number of samples for "Disgust" (represented by integer 1) is very few while "Happy" (represented by integer 3) is the most.
 
 
