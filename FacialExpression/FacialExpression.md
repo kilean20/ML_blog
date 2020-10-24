@@ -96,7 +96,7 @@ Note that off diagonal parts of the confusion matrix is less than 20\%. Maybe *C
 
 
 #### Real time classification
-Combined face detection with OpenCV and the trained model for emotion classification. [Reference](https://towardsdatascience.com/from-raw-images-to-real-time-predictions-with-deep-learning-ddbbda1be0e4)
+Combined (frontal) face detection of OpenCV with the trained model for emotion classification. [Reference](https://towardsdatascience.com/from-raw-images-to-real-time-predictions-with-deep-learning-ddbbda1be0e4)
 
 Follwoing is an example video of my kids and myself
 
