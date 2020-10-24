@@ -1,6 +1,6 @@
 # Realtime Facial Expression Classification
 
-This is a [Kaggle Challenge](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge).
+This is a [Kaggle Challenge](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge). Personal Kaggle notebook for this challenge is [here](https://www.kaggle.com/kilean/transferlearning-oversampling-labelsmoothing-acc70)
 
 The task is to categorize each face based on the emotion shown in the facial expression in to one of seven categories
 
