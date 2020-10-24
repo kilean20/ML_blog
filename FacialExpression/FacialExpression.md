@@ -86,7 +86,7 @@ def smooth_labels(y, smooth_factor):
     return y2
 ```
 
-# result
+# Results
 
 #### Confusion matrix
 Even after class balancing, the model still perform poorly on "Disgust" and confusing "Fear" with "Sad" mostly. 
