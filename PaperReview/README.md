@@ -14,4 +14,4 @@ https://arxiv.org/abs/1312.6114
 [Gaussian Process](GaussianProcess.ipynb): probabilistic model often used for Bayesian inference, prediction and (probabilistic) nonlinear interpolation.
 
 
-[Generative model vs. Discriminative model] (generative_model.ipynb)
+[Generative model vs. Discriminative model](generative_model.ipynb)
