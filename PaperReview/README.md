@@ -1,4 +1,4 @@
-# PaperReview
+# Paper Review
 
 
 
@@ -7,6 +7,10 @@
 *Diederik P Kingma, Max Welling*, 
 https://arxiv.org/abs/1312.6114
 
+
+
+
+# Concept Review
 
 [Bayesian inference](Bayesian.ipynb)
 
