@@ -8,6 +8,8 @@
 https://arxiv.org/abs/1312.6114
 
 
+
+
 2014, [Network In Network](2014_NiN.ipynb)
 
 *Min Lin, Qiang Chen, Shuicheng Yan*
@@ -15,11 +17,16 @@ https://arxiv.org/abs/1312.6114
 https://arxiv.org/abs/1312.4400
 
 
+
+
 2015, [Flattened Convolutional Neural Networks for Feedforward Acceleration](2015_FlattenConv.ipynb)
 
 *Jonghoon Jin, Aysegul Dundar, Eugenio Culurciello*
 
 https://arxiv.org/abs/1412.5474
+
+
+
 
 
 # Concept Review
