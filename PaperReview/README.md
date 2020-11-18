@@ -12,12 +12,14 @@ https://arxiv.org/abs/1312.4400
 
 
 
-
 - 2015, [Flattened Convolutional Neural Networks for Feedforward Acceleration](2015_FlattenConv.ipynb)  
 *Jonghoon Jin, Aysegul Dundar, Eugenio Culurciello*  
 https://arxiv.org/abs/1412.5474
 
 
+- 2015, [Rethinking the Inception Architecture for Computer Vision](2015_RethinkInception.ipynb) (in progess...)
+*Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jonathon Shlens, Zbigniew Wojna*  
+https://arxiv.org/abs/1512.00567
 
 
 # Concept Review
