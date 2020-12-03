@@ -17,9 +17,14 @@ https://arxiv.org/abs/1312.4400
 https://arxiv.org/abs/1412.5474
 
 
-- 2015, [Rethinking the Inception Architecture for Computer Vision](2015_RethinkInception.ipynb) (in progess...)
+- 2014, [Generative Adversarial Networks](2014_GAN.ipynb) (in progess...)
 *Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jonathon Shlens, Zbigniew Wojna*  
 https://arxiv.org/abs/1512.00567
+
+
+- 2015, [Rethinking the Inception Architecture for Computer Vision](2015_RethinkInception.ipynb) (in progess...)
+*Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio*  
+https://arxiv.org/abs/1406.2661
 
 
 # Concept Review
