@@ -10,7 +10,7 @@ The task is to categorize each face based on the emotion shown in the facial exp
 # Performance
 Good performance achieved: 70% accuracy over private test data (Kaggle provided). 
 
-For comparison, the Kaggle [private leaderboard](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/leaderboard) shows that 71% accuracy for the top rank and 69% accuracy fo the second rank.
+For comparison, the Kaggle [private leaderboard](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/leaderboard) shows that 71% accuracy for the top rank and 69% accuracy for the second rank.
 
 # Strategy toward good performance
 - Two stage transfer learning 
