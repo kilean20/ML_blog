@@ -18,6 +18,6 @@ A [literature](https://doi.org/10.1063/1.5003074) compares NN and GP on a regres
 
 ### Comparision with NN ensemble model on a 1D problem
 
-Although, the NN ensemble model is not Bayesian, it can estimate uncertainty and can incorporate new data by training.
+Although, the NN ensemble model is not Bayesian, it can estimate uncertainty and can incorporate new data by training. For a test, we prepare 16 identical MLP (Multi-Layer Perceptron) randomly initialized and train to fit $f(x)=\sin 4\pi x$
 
 
