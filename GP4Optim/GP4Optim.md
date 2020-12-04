@@ -1,9 +1,8 @@
 # Exploring Gaussian Process Regression for Bayesian Optimization
 
+Here we explore possible ways to improve probabilistic regression for surrogate model based optimization of a problem of high dimensional input space.
 
-Here we explore possible ways to improve probabilistic regression for surrogate model based optimization of a high dimensional input space problem.
 
----
 
 ## 1. Gaussian Process (GP) Model VS. Neural Network (NN) Model 
 The GP model is de facto standard surrogate model for Bayesian optimization possibly due to followings:
