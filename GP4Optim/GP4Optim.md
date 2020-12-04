@@ -8,7 +8,7 @@ The GP model is de facto standard surrogate model for Bayesian optimization poss
 - GP is a Bayesian regression model: can incorporate prior belief
 - GP can estimate uncertainty
 
-However, NN can also be made to satisfy the above. Here, we explore which one to use for Bayesian optimization.
+However, NN can also be made to satisfy the above. Here, we explore which one to use for Bayesian optimization. Intuitively, we expect GP to outperform NN generally, as [infinitely wide NN is equivalent to GP](https://arxiv.org/abs/1711.00165). 
 
 ### Literature comparing NN and GP
 
@@ -17,7 +17,6 @@ A [literature](https://doi.org/10.1063/1.5003074) compares NN and GP on a regres
 
 
 ### Comparision with NN ensemble model
-
 
 Although, the NN ensemble model is not Bayesian, it can estimate uncertainty and can incorporate new data by training.
 
