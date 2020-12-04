@@ -20,7 +20,7 @@ A [literature](https://doi.org/10.1063/1.5003074) compares NN and GP on a regres
 
 ### Comparision with NN ensemble model on a 1D problem
 
-Although, the NN ensemble model is not Bayesian, it can estimate uncertainty and can incorporate new data by training. A [test] on a 1D regression problem, GP outperformed NN ensemble. For a test, 16 identical MLPs (Multi-Layer Perceptron) are randomly initialized and trained to fit *f(x)=sin(4 &pi; x)* and compared to GPR (GP regression).
+Although, the NN ensemble model is not Bayesian, it can estimate uncertainty and can incorporate new data by training. A [test]() on a 1D regression problem, GP outperformed NN ensemble. For a test, 16 identical MLPs (Multi-Layer Perceptron) are randomly initialized and trained to fit *f(x)=sin(4 &pi; x)* and compared to GPR (GP regression).
 
 
 
