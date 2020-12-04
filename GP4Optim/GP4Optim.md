@@ -12,11 +12,11 @@ However, NN can also be made to satisfy the above. Here, we explore which one to
 
 ### Literature comparing NN and GP
 
-A [literature](https://doi.org/10.1063/1.5003074) compares NN and GP on a regression problem (fitting potential energy surface). GP resulted bettwe accuracy. 
+A [literature](https://doi.org/10.1063/1.5003074) compares NN and GP on a regression problem (fitting potential energy surface). GP resulted better accuracy. 
 
 
 
-### Comparision with NN ensemble model
+### Comparision with NN ensemble model on a 1D problem
 
 Although, the NN ensemble model is not Bayesian, it can estimate uncertainty and can incorporate new data by training.
 
