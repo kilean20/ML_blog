@@ -14,8 +14,11 @@ However, NN can also be made to satisfy the above. Here, we explore which one to
 
 ### Literature comparing NN and GP
 
-A [literature](https://doi.org/10.1063/1.5003074) compares NN and GP on a regression problem (fitting potential energy surface). GP resulted better accuracy. 
+A [literature](https://doi.org/10.1063/1.5003074) compares NN and GP on a regression problem (fitting potential energy surface). GP resulted better accuracy as stated in the folllowing abstract:
 
+<kbd>
+  <img src="NNvsGP_PotentialSurface.png" width="600" height="400" />
+</kbd>
 
 
 ### Comparision with NN ensemble model on a 1D problem
@@ -23,4 +26,4 @@ A [literature](https://doi.org/10.1063/1.5003074) compares NN and GP on a regres
 Although, the NN ensemble model is not Bayesian, it can estimate uncertainty and can incorporate new data by training. A [test]() on a 1D regression problem, GP outperformed NN ensemble. For a test, 16 identical MLPs (Multi-Layer Perceptron) are randomly initialized and trained to fit *f(x)=sin(4 &pi; x)* and compared to GPR (GP regression).
 
 
-
+## Curse of dimensionality
