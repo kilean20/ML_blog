@@ -48,7 +48,7 @@ Here, we explore how the dimensionality effect GP performance on a test example.
   <img src="./CurseOfDim/Eq_sinc4pi.png" width="250" />
 </p>
 
-Note that the input dimension can be arbitrary. We fix the number of training sample by 1024 and train GP for 2, 3, 4, 6 and 12 input dimension. The following plots show that the increase of dimensionality drastically decrease the GP performance (compare 3D and 4D). Note that for 12D, the GP did not learn much and stayed close to the prior (which was set to have zero mean and variance 1). 
+Note that the input dimension can be arbitrary. We fix the number of training sample by 1024 and train GP for 3, 4, 6 and 12 input dimension. The following plots show that the increase of dimensionality drastically decrease the GP performance (compare 3D and 4D). Note that for 12D, the GP did not learn much and stayed close to the prior (which was set to have zero mean). 
 
 
 ---
