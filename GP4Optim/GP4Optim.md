@@ -3,18 +3,18 @@
 Here, we explore possible ways to improve probabilistic regression for surrogate model based optimization of a problem of high dimensional input space.
 
 ### Motivation
-The [SLAC proposal](https://journals.aps.org/prab/abstract/10.1103/PhysRevAccelBeams.23.044601) of optimization strategy based on iterative neural network surrogate model + genetic algorithm  fascinated me. But I started to raise question about it's ability of reaching global minimum. For example, consider the following 1D potential that is an objective function:
+The [SLAC proposal](https://journals.aps.org/prab/abstract/10.1103/PhysRevAccelBeams.23.044601) of optimization strategy based on iterative neural network surrogate model + genetic algorithm  fascinated me. But I started to raise question about its ability o reach the global minimum. For example, consider the following 1D potential that is an objective function:
 
 <p align="center">
   <img src="NNsurrogateLocalMin.png" width="480"/>
 </p>
 
-Given the sparse training data (due to high evaluation cost) shown by the red stars, the surrogate model would not well represent the global optimum indicated by the green star. If a population based (global) optimization algorithm (like genetic algorithm) is applied on the surrogate model shown in the plot, the optimized population is likely avoid the global optimum. Even when any of random population land on near the global optimum, it would not be selected by optimizer due to high objective value from the surrogate model. This problem might be improved if the surrogate model can predict both mean and uncertainty of the objective like what GP does.
+Given the sparse training data (due to high evaluation cost) shown by the red stars, the surrogate model would not well represent the global optimum indicated by the green star. If a population-based (global) optimization algorithm (like the genetic algorithm) is applied to the surrogate model shown in the plot, the optimized population is likely to avoid the global optimum. Even when any random population land near the global optimum, it would not be selected by the optimizer due to the high objective value from the surrogate model. This problem might be improved if the surrogate model can predict both the mean and uncertainty of the objective like what GP does.
 
 
 ---
 ## 1. Gaussian Process (GP) Model VS. Neural Network (NN) Model 
-The GP model is de facto standard surrogate model for Bayesian optimization possibly due to followings:
+The GP model is the de facto standard surrogate model for Bayesian optimization possibly due to the followings:
 
 - GP is a Bayesian regression model: can incorporate prior belief
 - GP can estimate uncertainty
@@ -23,7 +23,7 @@ However, NN can also be made to satisfy the above. Here, we explore which one to
 
 ### Literature comparing NN and GP
 
-A [literature](https://doi.org/10.1063/1.5003074) compares NN and GP on a regression problem (fitting potential energy surface). GP resulted better accuracy as stated in the folllowing abstract:
+A [literature](https://doi.org/10.1063/1.5003074) compares NN and GP on a regression problem (fitting potential energy surface). GP resulted in better accuracy as stated in the following abstract:
 
 <p align="center">
   <kbd>
@@ -32,9 +32,9 @@ A [literature](https://doi.org/10.1063/1.5003074) compares NN and GP on a regres
 </p>
 
 
-### Comparision with NN ensemble model on a 1D problem
+### Comparison with NN ensemble model on a 1D problem
 
-Although, the NN ensemble model is not Bayesian, it can estimate uncertainty and can incorporate new data by training. A [test](./GPvsNN/GPvsNN.ipynn) on a 1D regression problem, GP outperformed NN ensemble. For a test, 16 identical MLPs (Multi-Layer Perceptron) are randomly initialized and trained to fit *f(x)=sin(4 &pi; x)* and compared to GPR (GP regression). The following comapres posterior estimate using GP (left) and NN ensemble (right):
+Although the NN ensemble model is not Bayesian, it can estimate uncertainty and can incorporate new data by training. In a [test](./GPvsNN/GPvsNN.ipynn) on a 1D regression problem, GP outperformed NN ensemble. For a test, 16 identical MLPs (Multi-Layer Perceptron) are randomly initialized and trained to fit *f(x)=sin(4 &pi; x)* and compared to GPR (GP regression). The following compares the posterior estimate using GP (left) and NN ensemble (right):
 
 <p align="center">
   <img src="./GPvsNN/GP.png" width="300" height="200" /> <img src="./GPvsNN/NNensemble_CELU.png" width="300" height="200" />
@@ -55,7 +55,8 @@ Note that the input dimension can be arbitrary. The following plot visualize *f(
   <img src="./CurseOfDim/3Dplot_GP.png" width="500" />
 </p>
 
-We fix the number of training sample by 1024 and train GP for 3, 4, 6 and 12 input dimension. The following plots show that the increase of dimensionality made the GP performance to drastically decrease (compare 3D and 4D). Note also that for 6D and 12D, the GP did not learn much and stayed close to the prior (which was set to have zero mean). 
+We fix the number of training samples by 1024 and train GP for 3, 4, 6, and 12 input dimensions. The following plots show that the increase of dimensionality made the GP performance drastically decrease (compare 3D and 4D). Note also that for 6D and 12D, the GP did not learn much and stayed close to the prior (which was set to have zero mean). 
+
 <p align="center">
   <img src="./CurseOfDim/GP3D_1024sample.png" width="250" /><img src="./CurseOfDim/GP4D_1024sample.png" width="250" />
 </p>
@@ -67,32 +68,35 @@ We fix the number of training sample by 1024 and train GP for 3, 4, 6 and 12 inp
 ---
 ## 3. How to solve the dimensionality problem
 
-We are interested in a optimization problem with simulated data of large input dimension (e.g. particle accelerator) and heavy cost for acquiring new data. We explore possible solutions to such problem: (1) construct prior from rough resolution simulation, (2) supervised dimensionality reduction.
+We are interested in an optimization problem with simulated data of large input dimensions (e.g. particle accelerator) and heavy cost for acquiring new data. We explore possible solutions to such problems: (1) construct prior from rough resolution simulation, (2) supervised dimensionality reduction.
 
 
 #### 3.1. Assume (roughly estimated) prior
 
 In Bayesian models, the prior plays an important role especially when only a few training data is available. 
 
-On the other hand, in sumuational study, it is often possbile to speed up simulation by sacrificing accuracy (e.g. decrease number of particles for particle tracking simualtion, decrease number of mode or grid for field calculation, etc). In this case, the optimization is often practiced to start from low accuracy (fast) simulation increase accuracy (decrease speed) as the optimization tend to converge.
+On the other hand, in a simulational study, it is often possible to speed up the simulation by sacrificing accuracy (e.g. decrease the number of particles for particle tracking simulation, decrease the number of mode or grid for field calculation, etc). In this case, the optimization is often practiced to start from low accuracy (fast) simulation increase accuracy (decrease speed) as the optimization tend to converge.
 
-Bayesian framework enables us to naturally incorporate such low accuracy data in terms of prior: we can use either GP or NN to build prior model from the low accuracy data.
+The Bayesian framework enables us to naturally incorporate such low accuracy data in terms of prior: we can use either GP or NN to build a prior model from the low accuracy data.
 
-Assuming, we have roughly estimated prior, we try again the 6D problem (as in the previous section). (see details from [here](./CurseOfDim/GP6D_wPrior.ipynb)) The following plot shows the assumed prior where the difference of the prior from groudn true is modeled by collection of randomly initialized NNs.
+Assuming, we have roughly estimated prior, we try again the 6D problem (as in the previous section). (see details from [here](./CurseOfDim/GP6D_wPrior.ipynb)) The following plot shows the assumed prior where the difference of the prior from ground true is modeled by a collection of randomly initialized NNs.
 <p align="center">
   <img src="./CurseOfDim/Prior_6D_SliceView.png" width="300" />
 </p>
 
-Then, we train GP using 1024 (accurate) data sample (as was done in the previous section) on top of the assumed prior. Following plot shows posterior. 
+Then, we train GP using 1024 (accurate) data sample (as was done in the previous section) on top of the assumed prior. The following plot shows posterior. 
+
 <p align="center">
   <img src="./CurseOfDim/GP_wPrior_6D_1024sample.png" width="300" />
 </p>
-Recall that in the previous section, when zero mean prior used, the GP could not learn much for 6D problem. But note here that with assumed rough prior, the GP performs much better. 
+
+Recall that in the previous section, when zero mean prior used, the GP could not learn much for the 6D problem. But note here that with assumed rough prior, the GP performs much better. 
 
 
-Furthermore, we tried 12D problem using 1024 (accurate) data sample (as was done in the previous section) on top of an assumed prior. (see details from [here](./CurseOfDim/GP12D_wPrior.ipynb))  The following plots show the result.
+Furthermore, we tried the 12D problem using a 1024 (accurate) data sample (as was done in the previous section) on top of an assumed prior. (see details from [here](./CurseOfDim/GP12D_wPrior.ipynb))  The following plots show the result.
 
-I would like to say it is drastic improvement recalling that the GP could not fit *f(x)* even for the 4D problem. (Caveat: it may still very costly to obtain rough prior even with very low accuracy simulation when input dimension is too large) 
+I would like to say it is a drastic improvement recalling that the GP could not fit *f(x)* even for the 4D problem. (Caveat: it may still very costly to obtain rough prior even with very low accuracy simulation when the input dimension is too large) 
+
 <p align="center">
   <img src="./CurseOfDim/Prior_12D_SliceView.png" width="250" /><img src="./CurseOfDim/GP_wPrior_12D_1024sample.png" width="250" />
 </p>
