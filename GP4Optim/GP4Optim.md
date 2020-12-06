@@ -40,22 +40,60 @@ Although, the NN ensemble model is not Bayesian, it can estimate uncertainty and
   <img src="./GPvsNN/GP.png" width="300" height="200" /> <img src="./GPvsNN/NNensemble_CELU.png" width="300" height="200" />
 </p>
 
+Note that GP outperformed NN ensemble in this test.
+
 ---
 ## 2. Curse of dimensionality
 
-Here, we explore how the dimensionality effect GP performance on a test example. The test problem is to fit the following:
+Here, we explore how the dimensionality effect GP performance on a test example. The test problem is to fit the following (multi-dimensional) sinc function:
 <p align="center">
   <img src="./CurseOfDim/Eq_sinc4pi.png" width="250" />
 </p>
 
-Note that the input dimension can be arbitrary. We fix the number of training sample by 1024 and train GP for 3, 4, 6 and 12 input dimension. The following plots show that the increase of dimensionality drastically decrease the GP performance (compare 3D and 4D). Note that for 12D, the GP did not learn much and stayed close to the prior (which was set to have zero mean). 
+Note that the input dimension can be arbitrary. The following plot visualize *f(x)* with 2D input dimension and corresponding GP result (using 128 training data). 
+<p align="center">
+  <img src="./CurseOfDim/3Dplot_GP.png" width="500" />
+</p>
+
+We fix the number of training sample by 1024 and train GP for 3, 4, 6 and 12 input dimension. The following plots show that the increase of dimensionality made the GP performance to drastically decrease (compare 3D and 4D). Note also that for 6D and 12D, the GP did not learn much and stayed close to the prior (which was set to have zero mean). 
+<p align="center">
+  <img src="./CurseOfDim/GP3D_1024sample.png" width="250" /><img src="./CurseOfDim/GP4D_1024sample.png" width="250" />
+</p>
+<p align="center">
+  <img src="./CurseOfDim/GP6D_1024sample.png" width="250" /><img src="./CurseOfDim/GP12D_1024sample.png" width="250" />
+</p>
 
 
 ---
 ## 3. How to solve the dimensionality problem
 
-We are interested in a optimization problem with simulated data of large input dimension (e.g. particle accelerator) and heavy cost for acquiring new data. We explore possible solutions to such problem: (1) construct prior from rough resolution simulation, (2) supervised dimensionality reduction
+We are interested in a optimization problem with simulated data of large input dimension (e.g. particle accelerator) and heavy cost for acquiring new data. We explore possible solutions to such problem: (1) construct prior from rough resolution simulation, (2) supervised dimensionality reduction.
+
 
 #### 3.1. Assume (roughly estimated) prior
 
-In Bayesian models, the prior plays an important role when only a few training data is available. 
+In Bayesian models, the prior plays an important role especially when only a few training data is available. 
+
+On the other hand, in sumuational study, it is often possbile to speed up simulation by sacrificing accuracy (e.g. decrease number of particles for particle tracking simualtion, decrease number of mode or grid for field calculation, etc). In this case, the optimization is often practiced to start from low accuracy (fast) simulation increase accuracy (decrease speed) as the optimization tend to converge.
+
+Bayesian framework enables us to naturally incorporate such low accuracy data in terms of prior: we can use either GP or NN to build prior model from the low accuracy data.
+
+Assuming, we have roughly estimated prior, we try again the 6D problem (as in the previous section). (see details from [here](./CurseOfDim/GP6D_wPrior.ipynb)) The following plot shows the assumed prior where the difference of the prior from groudn true is modeled by collection of randomly initialized NNs.
+<p align="center">
+  <img src="./CurseOfDim/Prior_6D_SliceView.png" width="300" />
+</p>
+
+Then, we train GP using 1024 (accurate) data sample (as was done in the previous section) on top of the assumed prior. Following plot shows posterior. 
+<p align="center">
+  <img src="./CurseOfDim/GP_wPrior_6D_1024sample.png" width="300" />
+</p>
+Recall that in the previous section, when zero mean prior used, the GP could not learn much for 6D problem. But note here that with assumed rough prior, the GP performs much better. 
+
+
+Furthermore, we tried 12D problem using 1024 (accurate) data sample (as was done in the previous section) on top of an assumed prior. (see details from [here](./CurseOfDim/GP12D_wPrior.ipynb))  The following plots show the result.
+
+I would like to say it is drastic improvement recalling that the GP could not fit $f(x)$ even for the 4D problem. (Caveat: it may still very costly to obtain rough prior even with very low accuracy simulation when input dimension is too large) 
+<p align="center">
+  <img src="./CurseOfDim/Prior_12D_SliceView.png" width="250" /><img src="./CurseOfDim/GP_wPrior_12D_1024sample.png" width="250" />
+</p>
+
