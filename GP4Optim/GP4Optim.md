@@ -47,4 +47,5 @@ Here, we explore how the dimensionality effect GP performance on a test example.
 <p align="center">
   <img src="./CurseOfDim/Eq_sinc4pi.png" width="250" />
 </p>
-with 1024 randomly selected input samples 
+
+with 1024 (uniform) random sample <img src="./CurseOfDim/x_domain.png" width="80">
