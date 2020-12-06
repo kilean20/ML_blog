@@ -92,7 +92,7 @@ Recall that in the previous section, when zero mean prior used, the GP could not
 
 Furthermore, we tried 12D problem using 1024 (accurate) data sample (as was done in the previous section) on top of an assumed prior. (see details from [here](./CurseOfDim/GP12D_wPrior.ipynb))  The following plots show the result.
 
-I would like to say it is drastic improvement recalling that the GP could not fit $f(x)$ even for the 4D problem. (Caveat: it may still very costly to obtain rough prior even with very low accuracy simulation when input dimension is too large) 
+I would like to say it is drastic improvement recalling that the GP could not fit *f(x)* even for the 4D problem. (Caveat: it may still very costly to obtain rough prior even with very low accuracy simulation when input dimension is too large) 
 <p align="center">
   <img src="./CurseOfDim/Prior_12D_SliceView.png" width="250" /><img src="./CurseOfDim/GP_wPrior_12D_1024sample.png" width="250" />
 </p>
