@@ -48,10 +48,14 @@ Here, we explore how the dimensionality effect GP performance on a test example.
   <img src="./CurseOfDim/Eq_sinc4pi.png" width="250" />
 </p>
 
-Note that the input dimension can be arbitrary. We fix the number of training sample by 1024 and train GP for 2, 3, 4 and 6 input dimension. 
+Note that the input dimension can be arbitrary. We fix the number of training sample by 1024 and train GP for 2, 3, 4 and 6 input dimension. The following plots show that the increase of dimensionality drastically decrease the GP performance. Note that for 6D, the GP did not learn much and stayed close to the prior (which was set to have zero mean and variance 1). 
 
 
 ---
 ## 3. How to solve the dimensionality problem
 
-We are interested in a optimization problem with simulated data of large input dimension (e.g. particle accelerator) and heavy cost for acquiring new data.
+We are interested in a optimization problem with simulated data of large input dimension (e.g. particle accelerator) and heavy cost for acquiring new data. We explore possible solutions to such problem: (1) construct prior from rough resolution simulation, (2) supervised dimensionality reduction
+
+#### 3.1. Effect of prior
+
+In Bayesian models, the prior plays very important role when only a few training data is available. 
