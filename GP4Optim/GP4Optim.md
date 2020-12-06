@@ -42,3 +42,9 @@ Although, the NN ensemble model is not Bayesian, it can estimate uncertainty and
 
 ---
 ## 2. Curse of dimensionality
+
+Here, we explore how the dimensionality effect GP performance on a test example. The test problem is to fit the following
+<p align="center">
+  <img src="./CurseOfDim/Eq_sinc4pi.png" width="250" />
+</p>
+with 1024 randomly selected input samples 
