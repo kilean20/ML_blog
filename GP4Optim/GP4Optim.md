@@ -71,7 +71,7 @@ We fix the number of training samples by 1024 and train GP for 3, 4, 6, and 12 i
 We are interested in an optimization problem with simulated data of large input dimensions (e.g. particle accelerator) and heavy cost for acquiring new data. We explore possible solutions to such problems: (1) construct prior from rough resolution simulation, (2) supervised dimensionality reduction.
 
 
-#### 3.1. Assume (roughly estimated) prior
+### 3.1. Assume (roughly estimated) prior
 
 In Bayesian models, the prior plays an important role especially when only a few training data is available. 
 
@@ -101,3 +101,15 @@ I would like to say it is a drastic improvement recalling that the GP could not 
   <img src="./CurseOfDim/Prior_12D_SliceView.png" width="250" /><img src="./CurseOfDim/GP_wPrior_12D_1024sample.png" width="250" />
 </p>
 
+### 3.2. Supervised dimension reduction
+
+Popular dimension reduction techniques including PCA, kernelPCA, ICA, AutoEncoder etc are unsupervised learning. In optimization problem where input parameters are explored to find the optimal output, the unsupervised or semi-unsupervised dimension reduction techniques are not applicable generally. 
+
+On the other hand, the supervised dimension reduction techniques (e.g. [Sliced Inverse Regression](https://doi.org/10.2307/2290563), [Kernel Dimension Reduction](https://dl.acm.org/doi/10.5555/1005332.1005335), [Covariance Operator Inverse Regression](https://ieeexplore.ieee.org/document/4587404)) are inverse transformation based and are reltively old and not well known compared to the unsupervised dimension reduction techniques. 
+
+Here, we apply a relatively new but very simple technique: the [bottleneck NN](https://link.springer.com/chapter/10.1007/978-3-642-15381-5_5), for supervised dimension reduction. The (reduced dimension) latent variables are then used as input parameters for GP. 
+
+
+
+
+- 
