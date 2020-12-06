@@ -43,9 +43,15 @@ Although, the NN ensemble model is not Bayesian, it can estimate uncertainty and
 ---
 ## 2. Curse of dimensionality
 
-Here, we explore how the dimensionality effect GP performance on a test example. The test problem is to fit the following
+Here, we explore how the dimensionality effect GP performance on a test example. The test problem is to fit the following:
 <p align="center">
   <img src="./CurseOfDim/Eq_sinc4pi.png" width="250" />
 </p>
 
-with 1024 (uniform) random sample <img src="./CurseOfDim/x_domain.png" width="80">
+Note that the input dimension can be arbitrary. We fix the number of training sample by 1024 and train GP for 2, 3, 4 and 6 input dimension. 
+
+
+---
+## 3. How to solve the dimensionality problem
+
+We are interested in a optimization problem with simulated data of large input dimension (e.g. particle accelerator) and heavy cost for acquiring new data.
