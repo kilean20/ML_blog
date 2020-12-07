@@ -66,7 +66,7 @@ We fix the number of training samples by 1024 and train GP for 3, 4, 6, and 12 i
 
 
 ---
-## 3. How to solve the dimensionality problem
+## 3. How to mitigate the curse of dimensionality
 
 We are interested in an optimization problem with simulated data of large input dimensions (e.g. particle accelerator) and heavy cost for acquiring new data. We explore possible solutions to such problems: (1) construct prior from rough resolution simulation, (2) supervised dimensionality reduction.
 
