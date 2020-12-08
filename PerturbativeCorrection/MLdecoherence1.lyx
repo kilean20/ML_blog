@@ -1,0 +1,1590 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+\usetheme{CambridgeUS}
+%\usetheme{Marburg}
+% or ...
+
+\usecolortheme{dolphin}
+%\usecolortheme{beaver}
+\usepackage{hyperref}
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%~~\beamer@ifempty{\insertshortinstitute}{}{(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+\setlength{\intextsep}{0cm plus1cm minus1cm}
+
+
+% for movie ... 
+\usepackage{multimedia}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "times" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+ML on decoherence data
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset space \enskip{}
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename logo_DOE_LBNL_NERSC.png
+	width 5.5cm
+	height 0.5cm
+	BoundingBox 0bp 30bp 1000bp 150bp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This file is a solution template for:
+\end_layout
+
+\begin_layout Itemize
+Talk at a conference/colloquium.
+ 
+\end_layout
+
+\begin_layout Itemize
+Talk length is about 20min.
+ 
+\end_layout
+
+\begin_layout Itemize
+Style is ornate.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+In principle, this file can be redistributed and/or modified under the terms
+ of the GNU Public License, version 2.
+ However, this file is supposed to be a template to be modified for your
+ own needs.
+ For this reason, if you use this file as a template and not specifically
+ distribute it as part of a another package/program, the author grants the
+ extra permission to freely copy and modify this file as you see fit and
+ even to delete this copyright notice.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+title[ML on decoherence data]{Getting most out of nonlinear decoherence
+ data using machine learning techniques.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subtitle{Part I: Perturbative approach on 1D model.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+Kilean Hwang, Chad Mitchell, Robert Ryne
+\end_layout
+
+\begin_layout Institute
+Lawrence Berkeley National Laboratory
+\end_layout
+
+\begin_layout Date
+April 6, 2020
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Itemize
+Either use conference name or its abbreviation.
+ 
+\end_layout
+
+\begin_layout Itemize
+Not really informative to the audience, more for people (including yourself)
+ who are reading the slides online
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+If you have a file called "institution-logo-filename.xxx", where xxx is a
+ graphic format that can be processed by latex or pdflatex, resp., then you
+ can add a logo by uncommenting the following:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+pgfdeclareimage[]{institution-logo}{logo_long_LBNL}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+logo{
+\backslash
+pgfuseimage{institution-logo}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The following causes the table of contents to be shown at the beginning
+ of every subsection.
+ Delete this, if you do not want it.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSection[]{
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+frame<beamer>{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+frametitle{Outline}   
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+tableofcontents[currentsection,hideallsubsections]
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSubsection[]{
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+frame<beamer>{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+frametitle{Outline}   
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+tableofcontents[currentsubsection]
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+If you wish to uncover everything in a step-wise fashion, uncomment the
+ following command:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+beamerdefaultoverlayspecification{<+->}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+\begin_inset Graphics
+	filename logo_DOE_LBNL_NERSC.png
+	width 4.1cm
+	height 0.48cm
+	BoundingBox 0bp 30bp 1000bp 150bp
+
+\end_inset
+
+
+\begin_inset Formula $\hspace*{1em}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Structuring a talk is a difficult task and the following structure may not
+ be suitable.
+ Here are some rules that apply for this solution: 
+\end_layout
+
+\begin_layout Itemize
+Exactly two or three sections (other than the summary).
+ 
+\end_layout
+
+\begin_layout Itemize
+At *most* three subsections per section.
+ 
+\end_layout
+
+\begin_layout Itemize
+Talk about 30s to 2min per frame.
+ So there should be between about 15 and 30 frames, all told.
+\end_layout
+
+\begin_layout Itemize
+A conference audience is likely to know very little of what you are going
+ to talk about.
+ So *simplify*! 
+\end_layout
+
+\begin_layout Itemize
+In a 20min talk, getting the main ideas across is hard enough.
+ Leave out details, even if it means being less precise than you think necessary.
+ 
+\end_layout
+
+\begin_layout Itemize
+If you omit details that are vital to the proof/implementation, just say
+ so once.
+ Everybody will be happy with that.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Introduction
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Goals:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Get as many information (e.g.
+ physical parameters) as possible from nonlinear decoherence data.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+(e.g.) Given a set of data, nonlinear PCA / ICA may able to provide relavant
+ number of parameters that can well represent (generate) the data.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Get best accuracy as possble.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+(e.g.) Given a set of data, this can be framed by a nonlinear regression problem.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+How many parameters are relavent to a given set of data
+\end_layout
+
+\begin_layout Subsection
+Review: AutoEncoder and Variational AutoEncoder
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+AutoEncoder
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename AutoEncoder.png
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+source : https://medium.com/@venkatakrishna.jonnalagadda/sparse-stacked-and-variat
+ional-autoencoder-efe5bfe73b64
+\end_layout
+
+\begin_layout Standard
+Varying the number of latent variable (i.e.
+ number of nodes in encoded layer) while tracking the reconstruction loss
+ (the quality of reconstruction), we can observe how many parameters are
+ relavent for data representation.
+ Therefore, it can be interpreted as a nonlinear PCA.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Variational AutoEncoder
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Differences to the AutoEncoder are...
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Encoded layer act as parameters of a probability that takes an assumed form
+ ( e.g.
+ normal distribution )
+\end_layout
+
+\begin_layout Itemize
+A sample of latent variable is randomely taken ( from the probability parameteri
+zed by the encoded layer ) and sent to decoder.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+One can make the latent variables to be independent of each other by choosing
+ the form of the parametrized probability such that covariance matrix is
+ diagonal.
+ (e.g.
+ multi-dimensional normal distribution with diagonal covariance) 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In this case, it can be interpreted as a nonlinear ICA.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Pro & Con
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Better representaion learning but worse reconstruction accuracy (due to
+ sampling procedure, and assumption on probability distribution on latent
+ variable )
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Data model and generation
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Data model and generation
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Data model: 1D decoherence centroid with first order nonlinear detuning
+ parameter 
+\begin_inset Formula $\partial_{I}\omega$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+C\left(t\right) & \equiv & \Re\left\langle \mathcal{A}z_{0}^{-i\left(\omega+\partial_{I}\omega I\right)t}\right\rangle 
+\end{eqnarray*}
+
+\end_inset
+
+where 
+\begin_inset Formula $z_{t}\equiv x_{t}-ip_{t}$
+\end_inset
+
+, 
+\begin_inset Formula $I=zz^{*}/2$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ is the linear trasnformation operator from normal to physical phase space
+ that takes the following matrix representation.
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{A} & \doteq & \left(\begin{array}{cc}
+\sqrt{\beta} & 0\\
+-\alpha/\sqrt{\beta} & 1/\sqrt{\beta}
+\end{array}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Data generation 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Prepare 1D Gaussian beam in normal coordinate so as to model equilibrium
+ beam
+\end_layout
+
+\begin_layout Itemize
+Sample optics parameters 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+, 
+\begin_inset Formula $\beta$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, initial offsets 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $p_{0}$
+\end_inset
+
+, frequency
+\begin_inset Formula $\omega$
+\end_inset
+
+ and nonlinear detuning parameter
+\begin_inset Formula $\partial_{I}\omega$
+\end_inset
+
+ from unifrom random within reseanable bound.
+ (Remember we have total 7 parameters)
+\end_layout
+
+\begin_layout Itemize
+Track particles to generate 
+\begin_inset Formula $C\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+AutoEncoder Result
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Reconstruction examples
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align left
+\begin_inset Graphics
+	filename AutoEncoder_Reconstruction.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Reconstructiuon loss over number of latent variables
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename AutoEncoder_Err_nSource.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+The error keep decreasing as the number of latent variables increase.
+ It is hard to say that we need only 7 parameters to represent the data.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Variational AutoEncoder Result
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Reconstruction examples
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align left
+\begin_inset Graphics
+	filename VAE_Reconstruction.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Reconstructiuon loss over number of latent variables
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename VAE_Err_nSource.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+VAE shows that there are 7 indepedent parameters that represent the data.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Perturbative approach for accurate regression
+\end_layout
+
+\begin_layout Subsection
+Leading order theory
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Leading order theory
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+Let 
+\begin_inset Formula $x,p$
+\end_inset
+
+ are normal coordinate normalized by emittance s.t.
+\begin_inset Formula 
+\[
+\int x^{2}\rho dxdp=\int p^{2}\rho dxdp=1
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\rho(x,p)$
+\end_inset
+
+ is the beam density.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Let the initical kick is
+\begin_inset Formula $\left\langle x-ip\right\rangle _{t=0}=x_{0}$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Then, 
+\series bold
+in the limit 
+\series default
+of 
+\begin_inset Formula $x_{0}\gg1$
+\end_inset
+
+, the centroid in frequnecy domain read
+\begin_inset Formula 
+\begin{eqnarray*}
+F\left(k\right) & \equiv & \sum_{t=0}^{T}\frac{\left\langle x-ip\right\rangle _{t}}{x_{0}}e^{-i\omega_{0}t}e^{-ikt}\\
+\Re\left[F\left(k\right)\right] & \simeq & \frac{1}{2}+\frac{\pi}{\left|x_{0}\omega_{I}\right|}\lambda\left(\frac{k}{x_{0}\omega_{I}}\right)
+\end{eqnarray*}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+\lambda\left(x\right)=\int\rho\left(x,p\right)dp
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\omega_{0}\equiv\omega\left(x_{0},0\right) & \quad & \omega_{I}\equiv\frac{\partial\omega}{\partial I}\left(x_{0},0\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Therefore, we can measure 
+\begin_inset Formula $\omega_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\left|\omega_{I}\right|$
+\end_inset
+
+, and 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ in the limit of 
+\begin_inset Formula $x_{0}\gg1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Data Model and Generation
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Data model and generation
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Data model: 1D decoherence centroid with first order nonlinear detuning
+ parameter 
+\begin_inset Formula $\partial_{I}\omega$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+C\left(t\right) & \equiv & \left\langle z_{0}^{-i\left(\omega+\partial_{I}\omega I\right)t}\right\rangle 
+\end{eqnarray*}
+
+\end_inset
+
+where 
+\begin_inset Formula $z_{t}\equiv x_{t}-ip_{t}$
+\end_inset
+
+, 
+\begin_inset Formula $I=zz^{*}/2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Data generation 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Prepare 1D Gaussian beam in normal coordinate
+\end_layout
+
+\begin_layout Itemize
+Sample optics parameters initial offsets 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ frequency
+\begin_inset Formula $\omega$
+\end_inset
+
+ and nonlinear detuning parameter
+\begin_inset Formula $\partial_{I}\omega$
+\end_inset
+
+ from unifrom random within reseanable bound.
+\end_layout
+
+\begin_layout Itemize
+Track particles to generate 
+\begin_inset Formula $C\left(t\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Input feature engineering : 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Perform DFT on 
+\begin_inset Formula $C\left(t\right)$
+\end_inset
+
+, Fit frequency and amplitude of largest spectral peak (using NAFF), Calculate
+ FWHM on left and right of the largest spectral peak.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Test1: small 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size footnotesize
+Given: 
+\begin_inset Formula $x_{0}=1$
+\end_inset
+
+ and
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\omega}{2\pi}=0.739 & \quad & \frac{\partial_{I}\omega}{2\pi}=\pm9.24\times10^{-3}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Estimated:
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\omega}{2\pi}=0.738452 & \quad & \frac{\partial_{I}\omega}{2\pi}=+11.3871\times10^{-3}\\
+\frac{\omega}{2\pi}=0.740129 & \quad & \frac{\partial_{I}\omega}{2\pi}=-11.4451\times10^{-3}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename smallOffset_z.png
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename smallOffset_FT.png
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Test 2: large 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size footnotesize
+Given: 
+\begin_inset Formula $x_{0}=20$
+\end_inset
+
+ and
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\omega}{2\pi}=0.235 & \quad & \frac{\partial_{I}\omega}{2\pi}=\pm4.44\times10^{-4}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Estimated:
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\omega}{2\pi}=0.232647 & \quad & \frac{\partial_{I}\omega}{2\pi}=+4.55265\times10^{-4}\\
+\frac{\omega}{2\pi}=0.237312 & \quad & \frac{\partial_{I}\omega}{2\pi}=-4.55461\times10^{-4}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename largeOffset_z.png
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename largeOffset_FT.png
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+ML model as a perturbative correction to leading order theory
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+ML Model as a perturbative correction to leading order theory
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename model.H2.1D.DFT.jpg
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Result: scalar inputs only
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename 1DH2gaussian_ScalarInputOnly_simpleModel_X0.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Result: scalar inputs only, 
+\begin_inset Formula $1/x_{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename 1DH2gaussian_ScalarInputOnly_simpleModel_inverseX0.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Result: Full and complex model, 
+\begin_inset Formula $1/x_{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename 1DH2gaussian_inverseX0.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Conclusion 
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Conclusion
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+VAE can be used to get the number of representation parameters of a given
+ data.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Given a nonlinear decoherence centroid data, we may able to determine how
+ many informations can be extracted using VAE.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+ML model as a perturbative correction to leading order nonlinear decoherence
+ theory could increase (virtual) measurement accuracy.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[]
+\end_layout
+
+\end_inset
+
+
+\shape italic
+\size large
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+Thank you for your attention!
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
