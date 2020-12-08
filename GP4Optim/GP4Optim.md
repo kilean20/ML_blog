@@ -66,12 +66,13 @@ We fix the number of training samples by 2048 and train GP for 3, 4, 6, and 12 i
 
 
 ---
-## 3. How to mitigate the curse of dimensionality
+# How to mitigate the curse of dimensionality?
 
 We are interested in an optimization problem with simulated data of large input dimensions (e.g. particle accelerator) and heavy cost for acquiring new data. We explore possible solutions to such problems: (1) construct prior from rough resolution simulation, (2) supervised dimensionality reduction.
 
 
-### 3.1. Assume (roughly estimated) prior
+---
+## 3. Using Prior
 
 In Bayesian models, the prior plays an important role especially when only a few training data is available. 
 
@@ -79,7 +80,10 @@ On the other hand, in a simulational study, it is often possible to speed up the
 
 The Bayesian framework enables us to naturally incorporate such low accuracy data in terms of prior: we can use either GP or NN to build a prior model from the low accuracy data.
 
-Assuming, we have roughly estimated prior, we try again the 6D problem (as in the previous section). (see details from [here](./CurseOfDim/GP6D_wPrior.ipynb)) The following plot shows the assumed prior where the difference of the prior from ground true is modeled by a collection of randomly initialized NNs.
+
+### 3.1. Assumed (roughly estimated) prior
+
+Assuming, we have roughly estimated prior, we try again the 6D problem (as in the previous section). (see details from [here](./CurseOfDim/GP6D_wPrior.ipynb)) The following plot visualize (slice view) the assumed prior where the difference of the prior from ground true is modeled by a collection of randomly initialized NNs.
 <p align="center">
   <img src="./wPrior/Prior_6D_SliceView.png" width="300" />
 </p>
@@ -95,13 +99,38 @@ Recall that in the previous section, when zero mean prior used, the GP could not
 
 Furthermore, we tried the 12D problem using a 2048 (accurate) data sample (as was done in the previous section) on top of an assumed prior. (see details from [here](./wPrior/GP12D_wPrior.ipynb))  The following plots show the result.
 
-I would like to say it is a drastic improvement recalling that the GP could not fit *f(x)* even for the 4D problem. (Caveat: it may still very costly to obtain rough prior even with very low accuracy simulation when the input dimension is too large) 
+It is a drastic improvement recalling that the GP could not fit *f(x)* even for the 4D problem. 
 
 <p align="center">
   <img src="./wPrior/Prior_12D_SliceView.png" width="250" /><img src="./wPrior/GP_wPrior_12D_1024sample.png" width="250" />
 </p>
 
-### 3.2. Supervised dimension reduction
+
+*However*, the cost of obtaining enough data to reconstruct the prior can be still daunting when the input dimension is large.
+
+
+### 3.2. Prior from assumed (roughly estimated) data
+
+Here, we assume that we have 100 times larger number of data (i.e. 204800) from the reduced accuracy (low resolution) simulation. Before we go furthr let's consider the relationship beween loss function and outliers:
+
+#### Mean Power Error Loss 
+
+The following histogram shows randomly generated 204800 data of the 4D test problem (the sinc function) in log-scale
+
+<p align="center">
+  <img src="train_data_histo_4D_204800sample.png" width="400" />
+</p>
+
+Note that there are only a few data for *f(x)>0.2*. This is because, as the input dimension become larger, the volume occupied by the peak of sinc function becomes relatively smaller. On the other hand, the mean square error (MSE) is the de-facto standard loss for regression. However, in the test problem, the sum of square error on these data (*f(x)>0.2*) can be only a small portion compared to other points. Often this behavior is desirable in ML as such points are often statistical outliers. However, simulation based optimization problem, we do not want to ignore such data (*f(x)>0.2* for our test problem). In order to penalize (very) few data points with large error, we can increase the power from square to larger even number: Mean Power Error Loss (MPELoss)
+
+Caveat: MPELoss may suffer from deep local minima. ( Momentum driven optimization like Adam can escape local minima due to training momentum. However, when the loss potential have deep local minima the optimizers are more likely stuck. We use following techniques to solve this: multiple batch, re-training with re-initialization and change of learning rate during training )
+
+#### Data driven prior
+
+Back to our test problem, we reconstruct the assumed (i.e. low resolution, low accuracy simulation) prior using larger amount (204800) of data. 
+
+
+## 4. Supervised dimension reduction
 
 Popular dimension reduction techniques including PCA, kernelPCA, ICA, AutoEncoder etc are unsupervised learning. In optimization problem where input parameters are explored to find the optimal output, the unsupervised or semi-unsupervised dimension reduction techniques are not applicable generally. 
 
