@@ -58,10 +58,10 @@ Note that the input dimension can be arbitrary. The following plot visualize *f(
 We fix the number of training samples by 2048 and train GP for 3, 4, 6, and 12 input dimensions. The following plots show that the increase of dimensionality made the GP performance drastically decrease (compare 3D and 4D). Note also that for 6D and 12D, the GP did not learn much and stayed close to the prior (which was set to have zero mean). 
 
 <p align="center">
-  <img src="./CurseOfDim/GP3D_1024sample.png" width="250" /><img src="./CurseOfDim/GP4D_2048sample.png" width="250" />
+  <img src="./CurseOfDim/GP3D_2048sample.png" width="250" /><img src="./CurseOfDim/GP4D_2048sample.png" width="250" />
 </p>
 <p align="center">
-  <img src="./CurseOfDim/GP6D_1024sample.png" width="250" /><img src="./CurseOfDim/GP12D_2048sample.png" width="250" />
+  <img src="./CurseOfDim/GP6D_2048sample.png" width="250" /><img src="./CurseOfDim/GP12D_2048sample.png" width="250" />
 </p>
 
 
