@@ -31,12 +31,22 @@ we use the following structure of NN model
 
 
 ### Result
+Following results shows histogram of model error (orange) compared to the error of the leading order theory (blue). 
+
+- Scalar inputs only except 1/x<sub>0</sub>:
+
 <p align="center">
   <img src="1DH2gaussian_ScalarInputOnly_simpleModel_X0.png"/>
 </p>
+
+- Add centroid data inputs in addition to the Scalar inputs (except 1/x<sub>0</sub>):
+
 <p align="center">
   <img src="1DH2gaussian_ScalarInputOnly_simpleModel_inverseX0.png"/>
 </p>
+
+- Include all input features including 1/x<sub>0</sub>:
+
 <p align="center">
   <img src="1DH2gaussian_inverseX0.png"/>
 </p>
