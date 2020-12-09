@@ -1,6 +1,6 @@
 # Machine Learning Projects
 
-Kilean Hwang,  Accelerator Physics Ph.D.,
+Kilean Hwang,  Accelerator Physics Ph.D.,  
 Postdoctoral Accelerator Physicist at Lawrence Berkeley National Laboratory
 
 
