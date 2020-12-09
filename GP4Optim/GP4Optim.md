@@ -66,7 +66,8 @@ The 2nd approach ([supervised dimensionality reduction](./DimReduction/DimReduct
 
 ## 3. Using Prior
 
-[notebook](./wPrior/GP6D_wPrior.ipynb)
+[notebook](./wPrior/GP6D_wPrior.ipynb) for 6D problem
+[notebook](./wPrior/GP12D_wPrior.ipynb) for 12D problem
 
 In Bayesian models, the prior plays an important role especially when only a few training data is available. 
 
@@ -96,18 +97,16 @@ Similarily, for the 12D problem
 
 ### 3.2. Prior from assumed (roughly estimated) data
 
+[notebook](./wPrior/approxPriorFromData/GP4D_wPrior.ipynb) for 4D problem
+
 Here we try to reconstruct the prior using assumed data (100 times larger number of data: 204800) that represent reduced accuracy (low resolution) simulation. 
-*Instead of mean square error loss, we increase the power to higher even number in order to account for outliers (detail [here](./MPELoss/MPELoss.md)*
+*Instead of mean square error loss, we increase the power to higher even number (Mean Power Error Loss: [MPELoss](./MPELoss/MPELoss.md)) in order to account for outliers.*
 
+Following is example on 4D problem: 
 
-
-## 4. Supervised dimension reduction
-
-Popular dimension reduction techniques including PCA, kernelPCA, ICA, AutoEncoder etc are unsupervised learning. In optimization problem where input parameters are explored to find the optimal output, the unsupervised or semi-unsupervised dimension reduction techniques are not applicable generally. 
-
-On the other hand, the supervised dimension reduction techniques (e.g. [Sliced Inverse Regression](https://doi.org/10.2307/2290563), [Kernel Dimension Reduction](https://dl.acm.org/doi/10.5555/1005332.1005335), [Covariance Operator Inverse Regression](https://ieeexplore.ieee.org/document/4587404)) are inverse transformation based and are reltively old and not well known compared to the unsupervised dimension reduction techniques. 
-
-Here, we apply a relatively new but very simple technique: the [bottleneck NN](https://link.springer.com/chapter/10.1007/978-3-642-15381-5_5), for supervised dimension reduction. The (reduced dimension) latent variables are then used as input parameters for GP. 
+<p align="center">
+  <img src="./wPrior/approxPriorFromData/GP4D_2048sample.png" width="250" /> <img src="./wPrior/approxPriorFromData/DataDrivenPrior_4D_SliceView.png" width="250" /> <img src="./wPrior/approxPriorFromData/GP_wDataDrivenPrior_4D_2048sample_204800priorSample.png" width="250" /> 
+</p>
 
 
 
