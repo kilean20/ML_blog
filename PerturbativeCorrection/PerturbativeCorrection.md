@@ -20,7 +20,7 @@ However, the initial offset cannot be made arbitrarily large due to beam pipe an
 ### Strategies
 
 ##### 1. Input feature engineering: 1/x<sub>0</sub>
-Since the leading order theory works in the limit of large offset, the next leading order would be smaller than the leading order term by a factor of 1/x<sub>0</sub>. Therefore, an additional input feature of 1/x<sub>0</sub> may boost the model performance. Further input features based on terms appearing in the leading order theory or based on EDA (Explanatory Data Analysis) might be good to add. (see more details on the [slide](MLdecoherence1.pdf))
+Since the leading order theory works in the limit of large offset, the next leading order would be smaller than the leading order term by a factor of 1/x<sub>0</sub>. Therefore, an additional input feature 1/x<sub>0</sub> may boost the model performance. Further input features based on terms appearing in the leading order theory or based on EDA (Explanatory Data Analysis) might be good to add. (see more details on the [slide](MLdecoherence1.pdf))
 
 ##### 2. Convolution Layers for centroid data
 Since the time-series data is correlated between the adjacent points in time (or adjacent frequency in the frequency domain), convolution layers may be more efficient than MLP. 
