@@ -29,7 +29,6 @@ we use the following structure of NN model
   <img src="model.H2.1D.DFT.jpg"/>
 </p>
 
-
 ### Result
 Following results shows histogram of model error (orange) compared to the error of the leading order theory (blue). 
 
