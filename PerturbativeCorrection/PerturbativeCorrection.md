@@ -59,7 +59,7 @@ The following results show the histogram of model error (orange) compared to the
 
 ### Remark
 
-I also tried to build a NN model that takes centroid data input and predict the bare frequency and the detuning parameter without incorporating the leading order theory. However, the model failed to converge in training (almost all times of several different sets of randomly initialized model parameters and many different model structures). I believe this is because the data depends on the bare frequency and detuning parameter in a complex way so that the model should be complex enough and even so the training is not guaranteed on such a complex model and data. 
+I also tried to build a NN model that takes centroid data input and predict the bare frequency and the detuning parameter without incorporating the leading order theory. However, the model failed to converge in training (almost all times of several different sets of randomly initialized model parameters and many different model structures). I believe this is because the data depends on the bare frequency and detuning parameter in a complex way so that the model should be complex enough. Even when the model is complex enough, the training is not guaranteed to converge to desired model on such a complex model and data. 
 
 
 ### Conclusion 
