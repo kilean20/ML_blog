@@ -5,7 +5,9 @@ this is part of the contents from a [slide](MLdecoherence1.pdf) that is presente
 
 ### Data Model and Goal
 
-The data is simulated time-series signal of beam centroid from Beam Position Monitor (BPM). Further details can be found from [here](Decoherence.md) or the [slide](MLdecoherence1.pdf). The data depends on the bare frequency *w<sub>0</sub>* and the nonlinear frequency detuning parameter *w<sub>1</sub>* that we want to measure and other parameters including initial offset, beam emittance, optics parameter, and more. Among them the initial offset is assumed to be known.
+The data is simulated time-series signal of beam centroid from Beam Position Monitor (BPM). Further details can be found from [here](Decoherence.md) or the [slide](MLdecoherence1.pdf). The data depends on the **bare frequency** *w<sub>0</sub>* and the nonlinear frequency **detuning parameter** *w<sub>1</sub>* that we want to determine and other parameters including initial offset, beam emittance, optics parameter, and more. Among them the initial offset is assumed to be known.
+
+The goal is the determine the bare frequency and detuning parameter from beam centroid data
 
 
 ### Leading order theory
