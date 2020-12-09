@@ -52,3 +52,16 @@ Following results shows histogram of model error (orange) compared to the error 
 </p>
 
 
+# Important remark
+
+I also tried to build a NN model that takes centroid data input and predict the bare frequency *w<sub>0</sub>* and the frequency detuning parameter *w<sub>1</sub>* without incoporating the leading order theory. However, the model failed to train well (almost all times of serveral different set of random initial model parameters and many different model structures) to predict them in a good accuracy. I believe this is because the data depends on the bare freuqncy and detuning parameter in a complex way so that the model should be complex enough and the training is not guranteed on such complex model and data. 
+
+
+
+# Conclusion 
+
+NN model as a perturbative correction to the leading order theory is a simple and natural way of incorporating (physics guided) domain knowledge. We applied this on simulated beam decoherence data to extract frequency and detuning parameter to better accuracy than leading order theory. 
+
+
+
+
