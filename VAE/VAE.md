@@ -15,7 +15,7 @@ The data is simulated time-series signal from beam centroid from Beam Position M
   <img src = "AutoEncoder_Err_nSource.png" height="200" /><img src = "AutoEncoder_Reconstruction.png" height="300" />
 </p>
 
-Note that the loss tend to keep decreasing as the number of latent variable increases more than 7. 
+Note that the loss tend to keep decreasing monotonically as the number of latent variable increases more than 7. 
 
 -Following is the result using VAE. 
   - Left: number of latent variable vs Loss. Right: Samples of input data (blue) and reconstruction (orange) by model
@@ -24,4 +24,4 @@ Note that the loss tend to keep decreasing as the number of latent variable incr
   <img src = "VAE_Err_nSource.png" height="200" /><img src = "VAE_Reconstruction.png" height="300" />
 </p>
 
-Note that the reconsturction quality is worse than AutoEncoder, but the loss tend to saturate at 7 latent variables
+Note that the reconsturction quality is worse than AutoEncoder, but the loss tend to saturate at 7 latent variables (note that loss at 9 latent variable is larger)
