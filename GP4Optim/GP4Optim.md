@@ -7,7 +7,7 @@ Here, we explore possible ways to improve probabilistic regression for surrogate
 In a dynamic aperture optimization problem ([here](DAoptim_wSexts.pdf) for details), I have been following the [SLAC proposal](https://journals.aps.org/prab/abstract/10.1103/PhysRevAccelBeams.23.044601) of optimization strategy: iterative NN surrogate model + genetic algorithm. But I realized that it may not reach global minimum. For example, consider the following 1D potential that is an objective function:
 
 <p align="center">
-  <img src="NNsurrogateLocalMin.png" width="480"/>
+  <img src="NNsurrogateLocalMin.png" width="450"/>
 </p>
 
 Given the sparse training data (due to high evaluation cost) shown by the red stars, the surrogate model would not well represent the global optimum indicated by the green star. If a population-based (global) optimization algorithm (like the genetic algorithm) is applied to the surrogate model shown in the plot, the optimized population is likely to avoid the global optimum. Even when any random population land near the global optimum, it would not be selected by the optimizer due to the high objective value from the surrogate model. This problem might be improved if the surrogate model can predict both the mean and uncertainty of the objective like what GP does.
@@ -52,10 +52,10 @@ Note that the input dimension can be arbitrary. The following plot visualize *f(
 We fix the number of training samples by 2048 and train GP for 3, 4, 6, and 12 input dimensions. The following plots show that the increase of dimensionality made the GP performance drastically decrease (compare 3D and 4D). Note also that for 6D and 12D, the GP did not learn much and stayed close to the prior (which was set to have zero mean). 
 
 <p align="center">
-  <img src="./CurseOfDim/GP3D_2048sample.png" width="250" /><img src="./CurseOfDim/GP4D_2048sample.png" width="250" />
+  <img src="./CurseOfDim/GP3D_2048sample.png" width="300" /><img src="./CurseOfDim/GP4D_2048sample.png" width="300" />
 </p>
 <p align="center">
-  <img src="./CurseOfDim/GP6D_2048sample.png" width="250" /><img src="./CurseOfDim/GP12D_2048sample.png" width="250" />
+  <img src="./CurseOfDim/GP6D_2048sample.png" width="300" /><img src="./CurseOfDim/GP12D_2048sample.png" width="300" />
 </p>
 
 
@@ -88,7 +88,7 @@ Recall that in the previous section, when zero mean prior used, the GP could not
 
 Similarily, for the 12D problem 
 <p align="center">
-  <img src="./wPrior/Prior_12D_SliceView.png" width="250" /><img src="./wPrior/GP_wPrior_12D_1024sample.png" width="250" />
+  <img src="./wPrior/Prior_12D_SliceView.png" width="300" /><img src="./wPrior/GP_wPrior_12D_1024sample.png" width="300" />
 </p>
 
 
@@ -105,10 +105,6 @@ Here we try to reconstruct the prior using assumed data (100 times larger number
 Following is example on 4D problem: 
 
 <p align="center">
-  <img src="./wPrior/approxPriorFromData/GP4D_2048sample.png" width="250" /> <img src="./wPrior/approxPriorFromData/DataDrivenPrior_4D_SliceView.png" width="250" /> <img src="./wPrior/approxPriorFromData/GP_wDataDrivenPrior_4D_2048sample_204800priorSample.png" width="250" /> 
+  <img src="./wPrior/approxPriorFromData/GP4D_2048sample.png" width="300" /> <img src="./wPrior/approxPriorFromData/DataDrivenPrior_4D_SliceView.png" width="300" /> <img src="./wPrior/approxPriorFromData/GP_wDataDrivenPrior_4D_2048sample_204800priorSample.png" width="300" /> 
 </p>
 
-
-
-
-- 
