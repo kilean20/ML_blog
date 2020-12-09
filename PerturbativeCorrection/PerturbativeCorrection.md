@@ -17,10 +17,10 @@ However, the intial offset cannot be made arbitrarily large due to beam pipe and
 ### Strategies
 
 ##### 1. Input feature engineering: 1/x<sub>0</sub>
-Since the leading order theory works in the limit of large offset, the next leading order would be smaller than the leading order term by factor of 1/x<sub>0</sub>. Therefore, additional input feature of 1/x<sub>0</sub> may boost the model performance. Further input features based on terms appearing in the leading order theory or EDA (Explanatory Data Analysis) might be good to be added. (see more details on the [slide](MLdecoherence1.pdf))
+Since the leading order theory works in the limit of large offset, the next leading order would be smaller than the leading order term by factor of 1/x<sub>0</sub>. Therefore, additional input feature of 1/x<sub>0</sub> may boost the model performance. Further input features based on terms appearing in the leading order theory or based on EDA (Explanatory Data Analysis) might be good to be added. (see more details on the [slide](MLdecoherence1.pdf))
 
 ##### 2. Convolution Layers for centroid data
-Since the time seires data is correlated between adjacent point in time ( or adjacent frequency in frequency domain), conveolution layers may be more efficient than MLP. 
+Since the time series data is correlated between adjacent point in time ( or adjacent frequency in frequency domain), convolution layers may be more efficient than MLP. 
 
 
 ### Model
@@ -31,5 +31,14 @@ we use the following structure of NN model
 
 
 ### Result
+<p align="center">
+  <img src="1DH2gaussian_ScalarInputOnly_simpleModel_X0.png"/>
+</p>
+<p align="center">
+  <img src="DH2gaussian_ScalarInputOnly_simpleModel_inverseX0.png"/>
+</p>
+<p align="center">
+  <img src="1DH2gaussian_inverseX0.png"/>
+</p>
 
 
