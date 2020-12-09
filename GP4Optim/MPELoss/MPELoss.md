@@ -18,7 +18,7 @@ Note that there are only a few data for *f(x)>0.15*. This is because, as the inp
   - Can be alleviated by using small learning rate
   
 
-Followings are example of NN model trained using p=8 (left) and p=2 (right) on 6D sinc function
+Followings are example of NN model trained using p=8 (left) and p=2 (right) on 6D sinc function.
 
 <p align="center">
   <img src="NN_6D_L8-Loss.png" width="350" /> <img src="NN_6D_L2-Loss.png" width="350" />
