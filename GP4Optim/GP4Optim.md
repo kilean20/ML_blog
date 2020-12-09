@@ -102,7 +102,7 @@ Similarily, for the 12D problem
 Here we try to reconstruct the prior using assumed data (100 times larger number of data: 204800) that represent reduced accuracy (low resolution) simulation. 
 *Instead of mean square error loss, we increase the power to higher even number (Mean Power Error Loss: [MPELoss](./MPELoss/MPELoss.md)) in order to account for outliers.*
 
-Following is example on 4D problem: 
+Following is an example on 4D problem: 
 
 <p align="center">
   <img src="./wPrior/approxPriorFromData/GP4D_2048sample.png" width="300" /> <img src="./wPrior/approxPriorFromData/DataDrivenPrior_4D_SliceView.png" width="300" /> <img src="./wPrior/approxPriorFromData/GP_wDataDrivenPrior_4D_2048sample_204800priorSample.png" width="300" /> 
