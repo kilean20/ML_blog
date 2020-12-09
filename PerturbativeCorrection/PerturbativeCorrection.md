@@ -35,7 +35,7 @@ we use the following structure of NN model
   <img src="1DH2gaussian_ScalarInputOnly_simpleModel_X0.png"/>
 </p>
 <p align="center">
-  <img src="DH2gaussian_ScalarInputOnly_simpleModel_inverseX0.png"/>
+  <img src="1DH2gaussian_ScalarInputOnly_simpleModel_inverseX0.png"/>
 </p>
 <p align="center">
   <img src="1DH2gaussian_inverseX0.png"/>
