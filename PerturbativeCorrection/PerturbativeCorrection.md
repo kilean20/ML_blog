@@ -54,6 +54,8 @@ The following results show the histogram of model error (orange) compared to the
   <img src="1DH2gaussian_inverseX0.png"/>
 </p>
 
+*Note* that inclusion of the input deature *1/x<sub>0</sub>* made the model perform better indicating that the correction model is a perturbative correction.
+
 
 ### Remark
 
