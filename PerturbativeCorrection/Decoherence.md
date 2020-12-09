@@ -28,4 +28,7 @@ becomes
   <img src="LeadingOrderTheory.png" width="320"/>
 </p>
 
-in the **limit of** *x<sub>n,0</sub>>>1* (i.e. **large initial offset compared to the initial emittance**).
+in the **limit of** *x<sub>n,0</sub>>>1* (i.e. **large initial offset compared to the initial emittance**), where
+<p align="center">
+  <img src="spatial_dist.png" width="200"/>
+</p>
