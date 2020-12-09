@@ -2,13 +2,16 @@
 
 this is part of the contents from a [slide](MLdecoherence1.pdf) which is presented in IOTA (Accelerator in Fermi Lab) collaboration meeting.
 
+
 ### Data Model and Goal
 
 The data is simulated time-series signal from beam centroid from Beam Position Monitor (BPM). Further details can be found from [here](Decoherence.md) or the [slide](MLdecoherence1.pdf). The data depends on the bare frequency *w<sub>0</sub>* and the nonlinear frequency detuning parameter *w<sub>1</sub>* that we want to measure and other parameters including initial offset, beam emittance, optics parameter, and more. We assume that the initial offset is known.
 
+
 ### Leading order theory
 
 It can be shown that, in the limit of large initial offset (compared to initial beam emittance), the leading order term of the centroid in the frequency domain can be used to measure the bare frequency *w<sub>0</sub>* and the detuning parameter *w<sub>1</sub>*. 
+
 
 ### Correction to the leading order theory using NN model
 
@@ -28,6 +31,7 @@ we use the following structure of NN model
 <p align="center">
   <img src="model.H2.1D.DFT.jpg"/>
 </p>
+
 
 ### Result
 The following results show the histogram of model error (orange) compared to the error of the leading order theory (blue). 
@@ -51,12 +55,12 @@ The following results show the histogram of model error (orange) compared to the
 </p>
 
 
-# Important remark
+### Remark
 
 I also tried to build a NN model that takes centroid data input and predict the bare frequency and the detuning parameter without incorporating the leading order theory. However, the model failed to converge in training (almost all times of several different sets of randomly initialized model parameters and many different model structures). I believe this is because the data depends on the bare frequency and detuning parameter in a complex way so that the model should be complex enough and even so the training is not guaranteed on such a complex model and data. 
 
 
-# Conclusion 
+### Conclusion 
 
 NN model as a perturbative correction to the leading order theory is a simple and natural way of incorporating (physics guided) domain knowledge. We applied this on simulated beam decoherence data to extract frequency and detuning parameter to better accuracy than leading order theory. 
 
