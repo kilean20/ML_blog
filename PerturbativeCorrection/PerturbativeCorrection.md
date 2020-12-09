@@ -1,4 +1,5 @@
-# Perturbative Correction Using ML ( applied on nonlinear decoherence data of beam centroid )
+# Perturbative Correction Using ML 
+### ( applied to nonlinear decoherence data of beam centroid )
 this is part of the contents from a [slide](MLdecoherence1.pdf) which is presented in IOTA (Accelerator in Fermi Lab) collaboration meeting.
 
 ## Data Model 
