@@ -66,7 +66,7 @@ The 2nd approach ([supervised dimensionality reduction](./DimReduction/DimReduct
 
 ## 3. Using Prior
 
-[notebook](./wPrior/GP6D_wPrior.ipynb) for 6D problem
+[notebook](./wPrior/GP6D_wPrior.ipynb) for 6D problem  
 [notebook](./wPrior/GP12D_wPrior.ipynb) for 12D problem
 
 In Bayesian models, the prior plays an important role especially when only a few training data is available. 
