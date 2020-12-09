@@ -6,10 +6,10 @@ this is part of the contents in [Here](MLdecoherence1.pdf) which a slide present
 Assume the following time series data model:
 
 <p align="center">
-  <img src="deco_data_model.png" width="480"/>
+  <img src="deco_data_model.png" width="200"/>
 </p>
 
-where the bracket <> represent the ensemble average over particles, <img src="z_t.png" width="100"/> is the complex canoncial variable at time *t*, <img src="action.png" width="70"/> is the action, and <img src="A.png" width="20"/> is the transformation operator from physical coordinate to normal coordinate. The decoherence data is generated with 7 free parameters: initial offsets <img src="x0.png" width="20"/>, <img src="p0.png" width="20"/>, initial emittance <img src="epsilon.png" width="20"/>, optics parameters <img src="beta.png" width="20"/>, <img src="alpha.png" width="20"/>, bare frequency <img src="omega.png" width="20"/>, and nonlinear detuning parameter <img src="detuning.png" width="20"/>.
+where the bracket <> represent the ensemble average over particles, *z<sub>t</sub> = x<sub>t</sub> - ip<sub>t</sub>* is the complex canoncial variable at time *t*, *I=zz<super>\*</super>/2* is the action, and *A* is the transformation operator from physical coordinate to normal coordinate. The decoherence data is generated with 7 free parameters: initial offsets *x<sub>0</sub>, p<sub>0</sub>*, <img src="p0.png" width="20"/>, initial emittance &epsilon;, optics parameters &alpha;, &beta;, bare frequency &omega;, and nonlinear detuning parameter &partial; <img src="detuning.png" width="20"/>.
 
 
 ## Leading order theory
