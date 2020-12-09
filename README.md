@@ -2,8 +2,7 @@
 
 Kilean Hwang,  
 Accelerator Physics Ph.D.,  
-Postdoctoral Accelerator Physicist,  
-Lawrence Berkeley National Laboratory  
+Postdoctoral Accelerator Physicist at Lawrence Berkeley National Laboratory
 
 
 - [Collection of ML paper reviews and remarks](./PaperReview/README.md)   
