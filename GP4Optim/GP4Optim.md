@@ -115,4 +115,4 @@ Following is an example on 4D problem:
 
 - The low resolution simulation data can be used to construct prior and the prior can improve GPR. 
 
-- We used MPELoss for prior construction using NN. The MPELoss may be proper than MSELoss for accounting important outliers. 
+- We used MPELoss for prior construction using NN. The MPELoss may be better than MSELoss to account the important outliers. 
