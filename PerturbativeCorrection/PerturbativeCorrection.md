@@ -19,20 +19,17 @@ where the bracket <> represent the ensemble average over particles, *z<sub>t</su
 Consider normal coordinate normalized by emittance such that:
 
 <p align="center">
-  <img src="normal_coordi.png" width="400"/>
+  <img src="normal_coordi.png" width="420"/>
 </p>
 
 With an initial offset in normal coordinate *x<sub>n,0</sub>*, the frequency domain of the normalized centroid,
 
 <p align="center">
-  <img src="DFT.png" width="200"/>
+  <img src="DFT.png" width="280"/>
 </p>
-
 becomes
-
 <p align="center">
-  <img src="LeadingOrderTheory.png" width="300"/>
+  <img src="LeadingOrderTheory.png" width="320"/>
 </p>
-
 in the **limit of** *x<sub>n,0</sub>>>1* (i.e. **large initial offset compared to the initial emittance**).
 
