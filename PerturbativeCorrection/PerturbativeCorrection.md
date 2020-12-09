@@ -17,16 +17,22 @@ where the bracket <> represent the ensemble average over particles, *z<sub>t</su
 ## Leading order theory
 
 Consider normal coordinate normalized by emittance such that:
+
 <p align="center">
-  <img src="normal_coordi.png" width="40"/>
+  <img src="normal_coordi.png" width="400"/>
 </p>
-With an initial offset in normal coordinate *x<sub>n,0</sub>*, the frequency domain of the normaized centroid,
+
+With an initial offset in normal coordinate *x<sub>n,0</sub>*, the frequency domain of the normalized centroid,
+
 <p align="center">
-  <img src="DFT.png" width="300"/>
+  <img src="DFT.png" width="200"/>
 </p>
+
 becomes
+
 <p align="center">
   <img src="LeadingOrderTheory.png" width="300"/>
 </p>
-in the **limit of** <img src="offset_limit.png" width="100"/> (i.e. **large initial offset compared to the initial emittance**).
+
+in the **limit of** *x<sub>n,0</sub>>>1* (i.e. **large initial offset compared to the initial emittance**).
 
