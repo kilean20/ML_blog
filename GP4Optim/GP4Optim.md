@@ -108,3 +108,11 @@ Following is an example on 4D problem:
   <img src="./wPrior/approxPriorFromData/GP4D_2048sample.png" width="300" /> <img src="./wPrior/approxPriorFromData/DataDrivenPrior_4D_SliceView.png" width="300" /> <img src="./wPrior/approxPriorFromData/GP_wDataDrivenPrior_4D_2048sample_204800priorSample.png" width="300" /> 
 </p>
 
+
+## 4. Conclusion
+
+- We explored possble ways to improve GP regression for Bayesian optimization problem using (high cost) simulated data. 
+
+- The low resolution simulation data can be used to construct prior and the prior can improve GPR. 
+
+- We used MPELoss for prior construction using NN. The MPELoss may be proper than MSELoss for accounting important outliers. 
