@@ -1,10 +1,10 @@
 
-#### Mean Power Error Loss 
+# Mean Power Error Loss 
 
-The following histogram shows randomly generated 204800 data of the 4D test problem (the sinc function) in log-scale
+The following histogram shows randomly generated 204800 data of the 4D test problem (of the sinc function) in log-scale
 
 <p align="center">
-  <img src="MPELoss/train_data_histo_4D_204800sample.png" width="400" />
+  <img src="train_data_histo_4D_204800sample.png" width="400" />
 </p>
 
 
