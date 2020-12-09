@@ -8,7 +8,7 @@ Postdoctoral Accelerator Physicist at Lawrence Berkeley National Laboratory
 - [Realtime Facial Expression Classification](./FacialExpression/FacialExpression.md)
 - [Perturbative Correction Using ML](./PerturbativeCorrection/PerturbativeCorrection.md)
 - [Use Variational Auto-Encoder for identifying number of information of data](./VAE/VAE.md)
-- [Gaussian process regression with dimension reduction](./GP4Optim/GP4Optim.md)
+- [Exploring Gaussian Process Regression for Bayesian Optimization](./GP4Optim/GP4Optim.md)
 
 
 
