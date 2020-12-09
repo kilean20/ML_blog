@@ -1,8 +1,8 @@
 # Perturbative Correction Using ML 
-### ( applied to nonlinear decoherence data of beam centroid )
+
 this is part of the contents from a [slide](MLdecoherence1.pdf) which is presented in IOTA (Accelerator in Fermi Lab) collaboration meeting.
 
-## Data Model 
+## Data Model and Goal
 
-We assume the data to be time series of complex valued scalar. To be more specific, it is simulated measurement data of beam centroid from Beam Position Monitor (BPM). The details can be found from [here](Decoherence.md) or the [slide](MLdecoherence1.pdf)
+We assume the data to be time series of complex valued scalar. To be more specific, it is simulated measurement data of beam centroid from Beam Position Monitor (BPM). The details can be found from [here](Decoherence.md) or the [slide](MLdecoherence1.pdf). The data depends on the bare frequency *w<sub>0</sub>* and the frequency detuning parameter *w<sub>1</sub>* that we want to find and other hidden parameters that we are not interested. 
 
