@@ -15,7 +15,7 @@ It can be shown that, in the limit of large initial offset (compared to initial 
 
 ### Correction to the leading order theory using NN model
 
-However, the initial offset cannot be made arbitrarily large due to beam pipe and higher-order nonlinearities. In addition, perturbative analytic derivation and expression of the next leading order can be very complex. So, we model the perturbative correction using neural networks. 
+However, the initial offset cannot be made arbitrarily large due to beam pipe and higher-order nonlinearities. Moreover, perturbative analytic derivation and expression of the next leading order can be very complex. So, we model the perturbative correction using neural networks. 
 
 ### Strategies
 
