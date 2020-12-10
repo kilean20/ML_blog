@@ -113,3 +113,13 @@ Following is an example on 4D problem:
 - The low resolution simulation data can be used to construct prior and the prior can improve GPR. 
 
 - We used MPELoss for prior construction using NN. The MPELoss may be better than MSELoss to account the important outliers. 
+
+
+## 5. Future Work
+
+- Data for prior mean:
+  - So far, we have been trying fit a test problem as much as possible. And the data for prior was randomly generated. But as we are interested in optimization, it would better to have prior data to be near possible optima as what Bayesian Optimization does. 
+  - Since data size for prior can be large, we need to look for alternative to GP. 
+- Would uncertainty of prior is also useful?  
+- Will supervised dimensionality reduction work?
+- Apply on dynamic aperture optimization.
