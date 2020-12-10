@@ -38,13 +38,7 @@ we use the following structure of the NN model
 ### Result
 The following results show the histogram of model error (orange) compared to the error of the leading order theory (blue). 
 
-- Scalar inputs only except 1/x<sub>0</sub>:
-
-<p align="center">
-  <img src="1DH2gaussian_ScalarInputOnly_simpleModel_X0.png"/>
-</p>
-
-- Add centroid data inputs in addition to the Scalar inputs (except 1/x<sub>0</sub>):
+- Include all input features except 1/x<sub>0</sub>
 
 <p align="center">
   <img src="1DH2gaussian_ScalarInputOnly_simpleModel_inverseX0.png"/>
@@ -56,7 +50,7 @@ The following results show the histogram of model error (orange) compared to the
   <img src="1DH2gaussian_inverseX0.png"/>
 </p>
 
-*Note* that inclusion of the input deature *1/x<sub>0</sub>* made the model perform better indicating that the correction model is a perturbative correction.
+*Note* that inclusion of the input deature *1/x<sub>0</sub>* made the model perform better indicating that the model is a perturbative correction.
 
 
 ### Remark
