@@ -1,6 +1,3 @@
-# Machine Learning Projects
-
----
 Kilean Hwang,  Accelerator Physics Ph.D.,  
 Postdoctoral Accelerator Physicist at Lawrence Berkeley National Laboratory  
 worked have been working on  
@@ -9,8 +6,8 @@ worked have been working on
 - space-charge simulation,
 - dynamic aperture optimization, and etc
 
----
 
+# Machine Learning Projects
 
 - [Collection of ML paper reviews and remarks](./PaperReview/README.md)   
 - [Realtime Facial Expression Classification](./FacialExpression/FacialExpression.md)
