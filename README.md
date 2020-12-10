@@ -1,7 +1,16 @@
 # Machine Learning Projects
 
+---
 Kilean Hwang,  Accelerator Physics Ph.D.,  
 Postdoctoral Accelerator Physicist at Lawrence Berkeley National Laboratory
+Worked have been working on
+
+- build free electron laser simulation tool,
+- nonlinear beam dynamics,
+- space-charge simulation,
+- dynamic aperture optimization, and etc
+
+---
 
 
 - [Collection of ML paper reviews and remarks](./PaperReview/README.md)   
