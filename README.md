@@ -2,9 +2,7 @@
 
 ---
 Kilean Hwang,  Accelerator Physics Ph.D.,  
-
-Postdoctoral Accelerator Physicist at Lawrence Berkeley National Laboratory
-
+Postdoctoral Accelerator Physicist at Lawrence Berkeley National Laboratory  
 worked have been working on
 
 - build free electron laser simulation tool,
