@@ -18,12 +18,9 @@ Given the sparse training data (due to high evaluation cost) shown by the red st
 
 [notebook](./GPvsNN/GPvsNN.ipynn)
 
-The GP model is the de facto standard surrogate model for Bayesian optimization possibly due to the followings:
+The GP model is the de facto standard surrogate model for Bayesian optimization possibly due to its ability of estimating model uncertainty.
 
-- GP is a Bayesian regression model: can incorporate prior belief
-- GP can estimate uncertainty
-
-On the other hand NN ensemble can also be made to satisfy the above. Here, we explore which one to use for Bayesian optimization.
+On the other hand NN ensemble can also be made to estimte model uncertainty. Here, we explore which one to use for optimization.
 
 For a test, 16 identical MLPs (Multi-Layer Perceptron) are randomly initialized and trained. The following compares the posterior estimate using GP (left) and NN ensemble (right) where the uncertainty is measured using prediction spread across the ensemble:
 
