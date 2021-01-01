@@ -11,15 +11,24 @@ https://arxiv.org/abs/1312.6114
 https://arxiv.org/abs/1312.4400
 
 
-
 - 2015, [Flattened Convolutional Neural Networks for Feedforward Acceleration](2015_FlattenConv.ipynb)  
 *Jonghoon Jin, Aysegul Dundar, Eugenio Culurciello*  
 https://arxiv.org/abs/1412.5474
 
 
-- 2014, [Generative Adversarial Networks](2014_GAN.ipynb) (in progess...)
+- 2014, [Generative Adversarial Networks](2014_GAN.ipynb)
 *Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jonathon Shlens, Zbigniew Wojna*  
 https://arxiv.org/abs/1512.00567
+
+
+- 2016, [Towards Principled Methods for Training Generative Adversarial Networks](2016_GANtrainingTheory.ipynb)
+*Martin Arjovsky, Léon Bottou*  
+https://arxiv.org/abs/1701.04862
+
+
+- 2017, [Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks](2017_cycleGAN.ipynb)
+*Jun-Yan Zhu, Taesung Park, Phillip Isola, Alexei A. Efros*  
+https://arxiv.org/abs/1703.10593
 
 
 - 2015, [Rethinking the Inception Architecture for Computer Vision](2015_RethinkInception.ipynb) (in progess...)
