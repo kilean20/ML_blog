@@ -1,7 +1,7 @@
 # Cycle GAN
 
 
-This is a [Kaggle Challenge](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge). Personal Kaggle notebook for this challenge is [here](https://drive.google.com/file/d/1Q9X-XbCXz51fByFKYXqg47_JtFzA2WHV/view?usp=sharing)
+This is a [Kaggle Challenge](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge). Personal notebook for this challenge is [here](https://drive.google.com/file/d/1Q9X-XbCXz51fByFKYXqg47_JtFzA2WHV/view?usp=sharing)
 
 
 The goal of cycleGAN is to learn mapping functions (generators) $G:X\rightarrowY$ and $F:Y\rightarrowX$ between two domains $X$ and $Y$. To acheive this goal
