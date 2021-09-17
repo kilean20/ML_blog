@@ -15,3 +15,4 @@ worked or have been working on
 - [Perturbative Correction Using ML](./PerturbativeCorrection/PerturbativeCorrection.md)
 - [Use Variational Auto-Encoder for identifying number of information of data](./VAE/VAE.md)
 - [Exploring Gaussian Process Regression for Bayesian Optimization](./GP4Optim/GP4Optim.md)
+- [Bi-fidelity Bayesian Surrogate model using Bagging NNs](./BiFidelNN/Bi_fidelity_BayesianNN.ipynb)
